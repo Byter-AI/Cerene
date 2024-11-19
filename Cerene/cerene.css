@@ -1,0 +1,382 @@
+/* Variables globales */
+:root {
+    --MainColor1: #EA94C5;
+    /* ROSA PASTEL */
+    --MainColor2: #FFE083;
+    /* AMARILLO PASTEL */
+    --MainColor3: #000000;
+    /* NEGRO */
+    --MainColor4: #ffffff;
+    /* BLANCO */
+}
+/* Fuentes */
+
+/* a confirmar*/
+html {
+    scroll-behavior: smooth;
+}
+
+
+.barra_de_navegacion {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: var(--MainColor2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    padding: 0 20px;
+}
+
+.logo-barra {
+    width: 55px;
+    height: auto;
+    margin-right: 30px;
+    vertical-align: middle;
+}
+.items {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    transition: translate(-50%, -50%);
+}
+
+.items li a {
+    font-family: "ABeeZee", sans-serif;
+    text-transform: uppercase;
+    text-wrap: nowrap;
+    display: block;
+    color: var(--MainColor3);
+    text-align: center;
+    padding: 14px 16px;
+    margin: 0px 20px;
+    text-decoration: none;
+    transition: 0.2s ease;
+    /* Transiciones suaves */
+}
+
+.items li a:hover {
+    transform: scaleX(1.2);
+    background-color: var(--MainColor1);
+    color: var(--MainColor2);
+    border-radius: 15px;
+    margin: top 0px;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+    margin-right: 30px;
+    color: var(--MainColor1);
+}
+
+.hamburger span {
+    height: 3px;
+    width: 25px;
+    background-color: var(--MainColor4);
+    margin: 4px;
+}
+
+.portada img {
+    width: 100%;
+    height: auto;
+    left: 0px;
+    right: 0px;
+}
+.contenedor-general-presentacion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.presentacion {
+    display: flex;
+    align-items: center;
+    gap: 80px; 
+}
+
+.imagen-presentacion {
+    max-width: 600px; 
+    height: auto;
+}
+
+.descripcion-presentacion {
+    font-family: "Rajdhani", sans-serif;
+    max-width: 400px; 
+    font-size: 1.7em; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.button {
+    font-size: 0.8em; 
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: var(--MainColor2); 
+    color: var(--MainColor3);
+    border: none;
+    border-radius: 15px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: 0.2s ease;
+    text-align: center;
+}
+
+.button:hover {
+    transform: scaleX(1.2);
+    background-color: var(--MainColor2);
+    color: var(--MainColor3);
+    border-radius: 15px;
+    margin: top 0px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3em;
+    font-weight: bold;
+    margin: 20px 0;
+    color: var(--MainColor2);
+    letter-spacing: 2px;     
+    text-transform: capitalize;
+    font-family: "ABeeZee", sans-serif;
+}
+
+/* CATALOGO */
+/* Contenedor principal de productos */
+.productos-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: nowrap; /* Cambiado a nowrap para mantener los productos en línea */
+    padding: 20px;
+    width: 100%;
+}
+
+/* Estilos del producto individual */
+.producto {
+    width: calc(33.33% - 20px); /* Ancho fijo considerando el gap */
+    text-align: center;
+    position: relative;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100%; /* Asegura altura mínima */
+}
+
+/* Contenedor de imágenes principal */
+.imagenes {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+/* Imagen principal */
+.imagen-producto {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+/* Contenedor de imágenes adicionales */
+.imagenes-adicionales {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 150px;
+    margin: 10px auto;
+}
+
+.imagenes-adicionales .imagen-producto {
+    max-width: 150px;
+}
+
+/* Animaciones y estados hover */
+.imagen-producto:hover {
+    transform: scale(1.05);
+}
+
+/* Descripción del producto */
+.descripcion-producto {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.descripcion-producto.visible {
+    max-height: 500px; /* Altura máxima suficiente para el contenido */
+    opacity: 1;
+    margin: 15px 0;
+    padding: 10px 0;
+}
+
+/* Estilos para el texto dentro de la descripción */
+.descripcion-producto p {
+    margin: 10px 0;
+    font-family: "Rajdhani", sans-serif;
+    font-size: 1em;
+}
+
+/* Estilos del precio */
+.precio {
+    color: var(--MainColor2);
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/* Estilos del botón */
+.producto button {
+    background-color: var(--MainColor1);
+    color: var(--MainColor3);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.producto button:hover {
+    background-color: var(--MainColor2);
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+    .productos-container {
+        flex-wrap: wrap;
+    }
+    
+    .producto {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+.descripcion-mision {
+    font-family: "Rajdhani", sans-serif;
+    max-width: 800px;
+    font-size: 1.3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto; /* Añade esto para centrar horizontalmente */
+}
+
+#Mision h1 {
+    color: var(--MainColor2);
+}
+
+/* FOOTER */
+
+.footer {
+    background-color: var(--MainColor2);
+    color: var(--MainColor3);
+    padding: 40px 20px;
+    font-family: "Rajdhani", sans-serif;
+}
+
+.footer-contenido {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.footer-seccion {
+    flex: 1;
+    text-align: left;
+}
+
+.footer-seccion h3 {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-seccion p {
+    margin: 10px 0;
+}
+
+.redes-sociales {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.red-social {
+    color: var(--MainColor3);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.red-social:hover {
+    color: var(--MainColor1);
+}
+
+.newsletter form {
+    display: flex;
+    gap: 10px;
+}
+
+.newsletter input {
+    flex-grow: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.newsletter button {
+    background-color: var(--MainColor1);
+    color: var(--MainColor4);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter button:hover {
+    background-color: var(--MainColor3);
+}
+
+.footer-copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--MainColor3);
+    margin-top: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer-contenido {
+        flex-direction: column;
+    }
+    
+    .footer-seccion {
+        text-align: center;
+    }
+    
+    .redes-sociales {
+        justify-content: center;
+    }
+}
